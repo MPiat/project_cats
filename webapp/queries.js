@@ -22,6 +22,27 @@ function checkOrInstantiateTable(){
         console.log(err);
     });
 };
+
+const getCats = (request, response) => {
+  pgClient.query('SELECT * FROM cats ORDER BY id ASC', (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.status(200).json(results.rows)
+  })
+};
+
+const getCatById = (request, response) => {
+  const id = parseInt(request.params.id)
+
+  pgClient.query('SELECT * FROM cats WHERE id = $1', [id], (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.status(200).json(results.rows)
+  })
+};
+
 const createCat = (request, response) => {
     const { name, age } = request.body
   
@@ -31,11 +52,40 @@ const createCat = (request, response) => {
       }
       response.status(201).send(`Cat added with ID: ${result.insertId}`)
     })
-  }
+};
 
+const updateCat = (request, response) => {
+  const id = parseInt(request.params.id)
+  const { name, age } = request.body
 
+  pgClient.query(
+    'UPDATE cats SET name = $1, age = $2 WHERE id = $3',
+    [name, age, id],
+    (error, results) => {
+      if (error) {
+        throw error
+      }
+      response.status(200).send(`Cat modified with ID: ${id}`)
+    }
+  )
+};
+
+const deleteCat = (request, response) => {
+  const id = parseInt(request.params.id)
+
+  pgClient.query('DELETE FROM cats WHERE id = $1', [id], (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.status(200).send(`Cat deleted with ID: ${id}`)
+  })
+};
 
 module.exports = {
     checkOrInstantiateTable,
-    createCat
+    createCat,
+    getCats,
+    getCatById,
+    updateCat,
+    deleteCat
   }
