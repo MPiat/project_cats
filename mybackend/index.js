@@ -26,7 +26,7 @@ app.delete('/cats/:id', queries.deleteCat);
 
 
 
-const PORT = 9090;
+const PORT = 4000;
 
 app.listen(PORT, () => {
     console.log(`API is listening on port ${PORT}`);
