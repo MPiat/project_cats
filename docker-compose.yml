@@ -10,7 +10,14 @@ services:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
     volumes: 
-      - ./postgresdata:/var/lib/postgresql/data  
+      - ./postgresdata:/var/lib/postgresql/data
+  mynginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./mynginx
+    ports: 
+      - '9090:80'
   mybackend:
     build: 
       dockerfile: Dockerfile.dev
@@ -19,6 +26,7 @@ services:
     depends_on: 
       - 'mypostgres'
       - 'myredis'
+      - 'mynginx'
     volumes:
       - /opt/app/node_modules 
       - /Users/haruspx/Desktop/Uni/MagY2/devops/project_cats/mybackend/:/opt/app
@@ -30,3 +38,12 @@ services:
       - REDIS_HOST=myredis
     ports:
       - "5000:4000"
+  myfrontend:
+      build:
+        dockerfile: Dockerfile.dev
+        context: ./myfrontend
+      depends_on: 
+        - 'mynginx'
+      volumes:
+        - /opt/app/node_modules
+        - ./myfrontend:/opt/app
