@@ -2,14 +2,14 @@ import React, {useState, useEffect} from "react";
 import axios from 'axios';
 
 
-const GetAllCats = (props) => {
+const AddCat = (props) => {
 
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
 
     const handleSubmit = (event) =>{
         console.log(`Dane do wyslania ${title} ${body}`);
-        axios.post('http://localhost:5000/cats',{
+        axios.post('http://localhost:9090/api/cats',{
             name: title,
             age: body,
         })
@@ -30,4 +30,4 @@ const GetAllCats = (props) => {
     );
 };
 
-export default GetAllCats;
+export default AddCat;

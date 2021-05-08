@@ -5,12 +5,14 @@ import axios from 'axios';
 const GetCat = (props) => {
 
     const [catID, setCatID] = useState("");
-    const [cat, setCat] = useState([{name:"Ted"}]);
+    const [cat, setCat] = useState([]);
 
     const handleSubmit = (event) =>{
-        axios.get(`http://localhost:5000/cats/${catID}`)
-        .then(response => setCat(response.data[0]))
+        console.log(catID);
+        axios.get(`http://localhost:9090/api/cats/${catID}`)
+        .then(response => setCat(response.data))
         .catch(error => console.log(error));
+        console.log(cat);
         event.preventDefault();
     };
 

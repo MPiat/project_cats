@@ -1,7 +1,7 @@
 import './App.css';
 import {useState} from "react";
 import Cat from './Cat';
-import GetAllCats from './GetAllCats';
+import AddCat from './AddCat';
 import UpdateCat from './UpdateCat';
 import DeleteCat from './DeleteCat';
 import GetCat from './GetCat';
@@ -19,7 +19,7 @@ function App() {
       {/* <input onChange={handleInitialValue}/> */}
 
       <Cat initValue={initialValue} changeParentHandler={setInitialValue}/>
-      <GetAllCats/>
+      <AddCat/>
       <UpdateCat/>
       <DeleteCat/>
       <GetCat/>

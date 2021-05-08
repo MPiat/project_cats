@@ -10,7 +10,7 @@ const DeleteCat = (props) => {
     // Both parameters have to be passed (name and age)
     const handleSubmit = (event) =>{
         // console.log(`Dane do wyslania ${title} ${body}`);
-        axios.delete(`http://localhost:5000/cats/${catID}`)
+        axios.delete(`http://localhost:9090/api/cats/${catID}`)
         .then(response => console.log(response))
         .catch(error => console.log(error));
         event.preventDefault();
