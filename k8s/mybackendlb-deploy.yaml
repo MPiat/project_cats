@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mybackendlb-deployment
+  labels:
+    component: backend
+    app: my-applb
+
+spec:
+  template:
+    metadata:
+      name: mybackendlb-pod
+      labels:
+        component: backend
+        app: my-applb2
+    spec:
+      containers:
+        - name: mybackendlb-container
+          image: mpiatk/simplebackend
+
+  replicas: 3
+  selector:
+    matchLabels:
+      component: backend
+      app: my-applb2
