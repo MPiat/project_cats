@@ -6,4 +6,5 @@ data:
   PGDATABASE: myappdb
   PGUSER: myappuser
   PGHOST: mypostgres-clusterip
-  
+  # POSTGRES_USER: postgres
+  # POSTGRES_DB: postgres
