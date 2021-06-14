@@ -4,7 +4,7 @@ metadata:
   name: mybackendlb-deployment
   labels:
     component: backend
-    app: my-applb
+    app: my-applb2
 
 spec:
   template:
