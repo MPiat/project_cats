@@ -38,7 +38,8 @@ services:
       - POSTGRES_USER=postgres
       - REDIS_HOST=myredis
     ports:
-      - "5000:4000"
+      # - "5000:4000"
+      - "5000:5000"
     image: mpiatk/mybackend
   myfrontend:
       build:
