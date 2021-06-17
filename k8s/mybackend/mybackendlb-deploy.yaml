@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: mybackendlb-container
-          image: mpiatk/mysimplebackend
+          image: mpiatk/mybackend
           env:
             - name: POSTGRES_PASSWORD
               valueFrom:
@@ -43,7 +43,7 @@ spec:
                 configMapKeyRef: 
                   name: myredis-config
                   key: REDIS_HOST  
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       component: backend

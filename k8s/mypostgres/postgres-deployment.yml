@@ -37,6 +37,7 @@ spec:
               configMapKeyRef: 
                 name: mypostgres-config
                 key: PGUSER              
+      
       volumes:
         - name: postgresvolume
           persistentVolumeClaim:

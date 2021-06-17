@@ -3,9 +3,9 @@ const redis = require('redis');
 
 // const pgClient = new Pool({
 //     user: "postgres",
-//     password: "P@ssw0rd123",
+//     password: "1qaz2wsx",
 //     database: "postgres",
-//     host: "mypostgres",
+//     host: process.env.POSTGRES_HOST,
 //     port: "5432"
 // });
 
@@ -18,9 +18,9 @@ const pgClient = new Pool({
 });
 
 
-// pgClient.on('error', () => {
-//     console.log("Postgres not connected");
-// });
+pgClient.on('error', () => {
+    console.log("Postgres not connected");
+});
 
 
 // Creating and testing redis connection
@@ -34,9 +34,9 @@ const redisClient = redis.createClient({
 //   port: 6379,
 //   // retry_strategy: () => 1000
 // });
-// redisClient.on('connect', () => {
-//   console.log('Connected to Redis server');
-// });
+redisClient.on('connect', () => {
+  console.log('Connected to Redis server');
+});
 
 function checkOrInstantiateTable(){
     pgClient.query(`CREATE TABLE IF NOT EXISTS cats (
