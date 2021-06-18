@@ -9,7 +9,8 @@ const GetCat = (props) => {
 
     const handleSubmit = (event) =>{
         console.log(catID);
-        axios.get(`http://localhost:9090/api/cats/${catID}`)
+        // axios.get(`http://localhost:9090/api/cats/${catID}`)
+        axios.get(`http://localhost/api/cats/${catID}`)
         .then(response => setCat(response.data))
         .catch(error => console.log(error));
         console.log(cat);

@@ -1,9 +1,4 @@
-kubectl apply -f ./myredis/myredis-deployment.yml
-
-kubectl apply -f ./myredis/my-redis-configMap.yml
-
-kubectl apply -f ./myredis/myredis-clusterip.yml
-
+# Start mypostgres
 kubectl apply -f ./mypostgres/postgres-pvc.yml
 
 kubectl apply -f ./mypostgres/pv-local.yml
@@ -16,8 +11,35 @@ kubectl apply -f ./mypostgres/postgres-configMap.yml
 
 kubectl apply -f ./mypostgres/postgres-deployment.yml
 
+# Start myredis
+kubectl apply -f ./myredis/myredis-deployment.yml
+
+kubectl apply -f ./myredis/my-redis-configMap.yml
+
+kubectl apply -f ./myredis/myredis-clusterip.yml
+
+# Start mybackend
 kubectl apply -f ./mybackend/mybackendlb-clusterip.yaml
 
-kubectl apply -f ./mybackend/mybackendlb-deploy.yaml
+kubectl apply -f ./mybackend/mybackendlb-deployment.yaml
 
 kubectl apply -f ./mybackend/mybackendlb-node-port.yaml
+
+# Start mynginx
+kubectl apply -f ./mynginx/my-nginx-clusterip.yaml
+
+kubectl apply -f ./mynginx/my-nginx-deployment.yaml
+
+kubectl apply -f ./mynginx/my-nginx-node-port.yaml
+
+# Start myfrontend
+kubectl apply -f ./myfrontend/myfrontend-clusterip.yaml
+
+kubectl apply -f ./myfrontend/myfrontend-deployment.yaml
+
+kubectl apply -f ./myfrontend/myfrontend-node-port.yaml
+
+
+# Start Ingress
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.47.0/deploy/static/provider/cloud/deploy.yaml
+kubectl apply -f myapp-ingress.yml

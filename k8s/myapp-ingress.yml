@@ -21,9 +21,9 @@ spec:
           pathType: Prefix
           backend:
             service:
-              name: mynginx-clusterip
+              name: myfrontend-clusterip
               port: 
-                number: 80
+                number: 3000
 
 
 

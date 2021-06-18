@@ -5,7 +5,8 @@ const Cat = (props) => {
     const [cats, setCats] = useState([]);
     const[number, setNumber] = useState(-1);
     useEffect(() =>{
-        axios.get('http://localhost:9090/api/cats')
+        // axios.get('http://localhost:9090/api/cats')
+        axios.get('http://localhost/api/cats')
         .then(response => setCats(response.data))
         .catch(error => console.log(error));
     }, []);

@@ -8,6 +8,7 @@ spec:
   - port: 80
     targetPort: 80
     nodePort: 31000
+    # nodePort: 31100
   selector:
     component: web
     name: my-app

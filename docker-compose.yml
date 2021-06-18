@@ -18,6 +18,7 @@ services:
       context: ./mynginx
     ports: 
       - '9090:80'
+      # - '80:80' TODO: Check if this will work
     image: mpiatk/mynginx
   mybackend:
     build: 
