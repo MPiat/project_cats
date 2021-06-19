@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from 'axios';
 
-const Cat = (props) => {
+const GetAllCat = (props) => {
     const [cats, setCats] = useState([]);
     const[number, setNumber] = useState(-1);
     useEffect(() =>{
@@ -19,7 +19,7 @@ const Cat = (props) => {
     <>
     <h1>Lista Kotów</h1>
         <div>
-            {cats.map(cat => (<div key={cat.id} onClick={handleCatClick}>{cat.id}. {cat.name}</div>))}
+            {cats.map(cat => (<div key={cat.id} onClick={handleCatClick}>{cat.id}. Name: {cat.name} Age: {cat.age}</div>))}
         </div>
     </>
     );
@@ -27,4 +27,4 @@ const Cat = (props) => {
 
 
 
-export default Cat;
+export default GetAllCat;
