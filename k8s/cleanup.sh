@@ -6,3 +6,4 @@ kubectl delete ingresses --all
 kubectl delete pvc --all
 kubectl delete pv --all
 kubectl delete secret --all
+kubectl delete namespace ingress-nginx
