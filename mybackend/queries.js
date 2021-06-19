@@ -1,14 +1,6 @@
 const { Pool } = require('pg');
 const redis = require('redis');
 
-// const pgClient = new Pool({
-//     user: "postgres",
-//     password: "1qaz2wsx",
-//     database: "postgres",
-//     host: process.env.POSTGRES_HOST,
-//     port: "5432"
-// });
-
 const pgClient = new Pool({
   user: process.env.POSTGRES_USER,
   password: process.env.POSTGRES_PASSWORD,
@@ -27,13 +19,8 @@ pgClient.on('error', () => {
 const redisClient = redis.createClient({
   host: process.env.REDIS_HOST,
   port: 6379,
-  // retry_strategy: () => 1000
 });
-// const redisClient = redis.createClient({
-//   host: "myredis",
-//   port: 6379,
-//   // retry_strategy: () => 1000
-// });
+
 redisClient.on('connect', () => {
   console.log('Connected to Redis server');
 });

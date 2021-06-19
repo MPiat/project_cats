@@ -8,11 +8,8 @@ const UpdateCat = (props) => {
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
 
-    // TODO: Add call to get cat of specified id to populate the initial data
     // Both parameters have to be passed (name and age)
     const handleSubmit = (event) =>{
-        // console.log(`Dane do wyslania ${title} ${body}`);
-        // axios.put(`http://localhost:9090/api/cats/${catID}`,{
         axios.put(`http://localhost/api/cats/${catID}`,{
             name: title,
             age: body,
