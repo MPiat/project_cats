@@ -25,12 +25,6 @@ kubectl apply -f ./mybackend/mybackendlb-deployment.yaml
 
 kubectl apply -f ./mybackend/mybackendlb-node-port.yaml
 
-# Start mynginx
-kubectl apply -f ./mynginx/my-nginx-clusterip.yaml
-
-kubectl apply -f ./mynginx/my-nginx-deployment.yaml
-
-kubectl apply -f ./mynginx/my-nginx-node-port.yaml
 
 # Start myfrontend
 kubectl apply -f ./myfrontend/myfrontend-clusterip.yaml
