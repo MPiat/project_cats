@@ -19,19 +19,19 @@ kubectl apply -f ./myredis/my-redis-configMap.yml
 kubectl apply -f ./myredis/myredis-clusterip.yml
 
 # Start mybackend
-kubectl apply -f ./mybackend/mybackendlb-clusterip.yaml
+kubectl apply -f ./mybackend/mybackendlb-clusterip.yml
 
-kubectl apply -f ./mybackend/mybackendlb-deployment.yaml
+kubectl apply -f ./mybackend/mybackendlb-deployment.yml
 
-kubectl apply -f ./mybackend/mybackendlb-node-port.yaml
+kubectl apply -f ./mybackend/mybackendlb-node-port.yml
 
 
 # Start myfrontend
-kubectl apply -f ./myfrontend/myfrontend-clusterip.yaml
+kubectl apply -f ./myfrontend/myfrontend-clusterip.yml
 
-kubectl apply -f ./myfrontend/myfrontend-deployment.yaml
+kubectl apply -f ./myfrontend/myfrontend-deployment.yml
 
-kubectl apply -f ./myfrontend/myfrontend-node-port.yaml
+kubectl apply -f ./myfrontend/myfrontend-node-port.yml
 
 
 # Start Ingress
