@@ -10,7 +10,7 @@ const UpdateCat = (props) => {
 
     // Both parameters have to be passed (name and age)
     const handleSubmit = (event) =>{
-        axios.put(`http://localhost/api/cats/${catID}`,{
+        axios.put(`/api/cats/${catID}`,{
             name: title,
             age: body,
         })

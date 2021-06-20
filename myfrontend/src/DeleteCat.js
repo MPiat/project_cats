@@ -7,7 +7,7 @@ const DeleteCat = (props) => {
     const [catID, setCatID] = useState("");
 
     const handleSubmit = (event) =>{
-        axios.delete(`http://localhost/api/cats/${catID}`)
+        axios.delete(`/api/cats/${catID}`)
         .then(response => console.log(response))
         .catch(error => console.log(error));
         event.preventDefault();

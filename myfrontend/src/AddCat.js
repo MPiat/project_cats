@@ -9,7 +9,9 @@ const AddCat = (props) => {
 
     const handleSubmit = (event) =>{
         console.log(`Dane do wyslania ${title} ${body}`);
-        axios.post('http://localhost/api/cats',{
+        // axios.post('http://localhost/api/cats',{
+
+        axios.post('/api/cats',{
             name: title,
             age: body,
         })
