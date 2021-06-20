@@ -24,5 +24,6 @@ kubectl apply -f ./myfrontend/myfrontend-node-port.yml
 
 
 # Start Ingress
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.47.0/deploy/static/provider/cloud/deploy.yaml
-kubectl apply -f myapp-ingress.yml
+# kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.47.0/deploy/static/provider/cloud/deploy.yaml
+kubectl apply -f deploy.yaml
+# kubectl apply -f myapp-ingress.yml
